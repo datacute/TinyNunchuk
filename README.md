@@ -2,13 +2,13 @@
 
 This is a library for an ATTiny85 to use a Wii Nunchuk, over I<sup>2</sup>C.
 
-The Wii Nunchuk is a controller with a joystick, accelerometer, and two buttons. It comunicates over I2C at 3.3V.
+The Wii Nunchuk is a controller with a joystick, accelerometer, and two buttons. It communicates over I2C at 3.3V.
 
 ## Example Usage
 
 ```c
 // Choose your I2C implementation before including TinyNunchuk.h
-// The default is selected is Wire.h
+// The default if none is selected is Wire.h
 
 // To use the Wire library:
 //#include <Wire.h>
