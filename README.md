@@ -1,4 +1,4 @@
-# TinyNunchuck
+# TinyNunchuk
 
 This is a library for an ATTiny85 to use a Wii Nunchuk, over I<sup>2</sup>C.
 

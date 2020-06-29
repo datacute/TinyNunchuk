@@ -33,39 +33,39 @@ static uint8_t datacute_endTransmission_tinywirem(void) {
 
 #endif
 
-static bool nunchuck_beginTransmission_tinywirem(void) {
+static bool nunchuk_beginTransmission_tinywirem(void) {
 	TinyWireM.beginTransmission(NUNCHUK_ADDRESS);
 	return true;
 }
 
 #ifndef TINYNUNCHUK_QUICK_BEGIN
-static bool nunchuck_check_tinywirem(void) {
+static bool nunchuk_check_tinywirem(void) {
 	const uint8_t noError = 0x00;
-	nunchuck_beginTransmission_tinywirem();
+	nunchuk_beginTransmission_tinywirem();
 	return (datacute_endTransmission_tinywirem()==noError);
 }
 #endif
 
-static void nunchuck_begin_tinywirem(void) {
+static void nunchuk_begin_tinywirem(void) {
 	TinyWireM.begin();
 #ifndef TINYNUNCHUK_QUICK_BEGIN
-	while (!nunchuck_check_tinywirem()) {
+	while (!nunchuk_check_tinywirem()) {
 		delay(10);
 	}
 #endif
 }
 
-static uint8_t nunchuck_request_tinywirem(uint8_t length) {
+static uint8_t nunchuk_request_tinywirem(uint8_t length) {
 	const uint8_t noError = 0x00;
 	if (TinyWireM.requestFrom(NUNCHUK_ADDRESS, length)==noError) return length;
 	return 0;
 }
 
-NunchukDevice nunchuk(&nunchuck_begin_tinywirem,
-	&nunchuck_beginTransmission_tinywirem,
+NunchukDevice nunchuk(&nunchuk_begin_tinywirem,
+	&nunchuk_beginTransmission_tinywirem,
 	&datacute_write_tinywirem,
 	&datacute_endTransmission_tinywirem,
-	&nunchuck_request_tinywirem,
+	&nunchuk_request_tinywirem,
 	&datacute_read_tinywirem,
 	&datacute_end_read_tinywirem);
 
